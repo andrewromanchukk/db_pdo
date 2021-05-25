@@ -3,7 +3,23 @@ pipeline {
     stages {
         stage('Build image') {
             steps{
-                echo "Hello World"
+                echo "Start build"
+                echo "Building..."
+                echo "End of Bulding"
+            }
+        }
+        stage('Test image') {
+            steps{
+                echo "Start Testing"
+                echo "Testing..."
+                echo "End of Testing"
+            }
+        }
+        stage('Deploy image') {
+            steps{
+                echo "Start Deploying"
+                echo "Deploy..."
+                echo "End of Deploying"
             }
         }
     }
