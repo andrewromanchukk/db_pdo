@@ -1,18 +1,17 @@
-pipeline{
+pipeline {
     agent any
-    stages{
+    stages {
         stage('Build image') {
-            app = docker.build("eu.gcr.io/igneous-sum-312016/db_pdo_pipeline")
-            }
+            app = docker.build('eu.gcr.io/igneous-sum-312016/db_pdo_pipeline')
+        }
             stage('Push image') {
             docker.withRegistry('https://eu.gcr.io', 'gcr:docker_build') {
                 app.push("${env.BUILD_NUMBER}")
-                app.push("latest")
+                app.push('latest')
             }
             }
-        }
     }
-
+}
 
 // pipeline {
 //     agent any
